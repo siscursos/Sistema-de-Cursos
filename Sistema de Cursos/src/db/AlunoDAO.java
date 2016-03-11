@@ -14,7 +14,7 @@ public class AlunoDAO {
 	private boolean consulta = false;
 	private ResourceBundle bn = null;
 	
-	//Construtores
+	 //Construtores
 	public AlunoDAO(ResourceBundle bun) {
 		bn = bun;
 	}
