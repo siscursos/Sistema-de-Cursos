@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 import java.sql.Date;
-
+//To padrão
 public class CursoTO {
 	protected int    codigo;
 	protected String nome;

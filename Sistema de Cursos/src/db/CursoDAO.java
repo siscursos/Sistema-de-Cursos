@@ -26,7 +26,7 @@ public class CursoDAO {
 	public CursoDAO() {
 	}
 
-	// gets
+	// get's
 	public boolean getConsulta() {
 		return consulta;
 	}

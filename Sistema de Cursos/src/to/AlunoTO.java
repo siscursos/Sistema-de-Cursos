@@ -1,7 +1,7 @@
 package to;
 
 import java.util.ResourceBundle;
-
+//To padrão
 public class AlunoTO {
 	private String nome;
 	private String endereco;

@@ -13,11 +13,12 @@ import to.AlunoTO;
 public class AlunoDAO {
 	private boolean consulta = false;
 	private ResourceBundle bn = null;
-
+	
+	//Construtores
 	public AlunoDAO(ResourceBundle bun) {
 		bn = bun;
 	}
-
+	
 	public boolean getConsulta() {
 		return consulta;
 	}
