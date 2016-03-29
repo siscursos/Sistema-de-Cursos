@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Cadastro de Alunos</title>
+<link rel="stylesheet" href="EstiloForms.css" />
+</head>
+<body bgcolor="FFFFFF">
+	<h1>Sistema de Cursos</h1>
+	<form method="post" id="fcontato" action="manter_clientes.do">
+		<fieldset id="usuario">
+			<legend>Cadastro de Alunos</legend>
+			<p>
+				Nome: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="tName"
+					id"cNome" size="40" maxlenght="40" placeholder="Digite seu nome" />
+			</p>
+			<p>
+				Endereço: <input type="text" name="tEnd"
+					id"cEnd" size="50" maxlenght="50" placeholder="Digite seu endereço" />
+			</p>
+			<p>
+				Telefone: &nbsp;<input type="number" name="tTel" id="cTel" size="20" maxlenght="11" min="0" max="99999999999"/> 
+				E-mail: <input type="email" name="tEmail"
+					id"cEmail" size="40" maxlenght="40" placeholder="Digite seu email" />
+			</p>
+
+			<p>
+				RG: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="tRG"
+					id"cRG" size="20" maxlenght="9" />
+				CPF: &nbsp;&nbsp;&nbsp;&nbsp;<input type="number" name="tCPF"
+					id"cCPF" size="20" maxlenght="11" />
+				<input type="submit" name="acao" value="Consultar">	
+			</p>
+			<p>
+				Usuário: &nbsp;&nbsp;<input type="text" name="tRG"
+					id"cRG" size="20" maxlenght="9" />
+				Senha: &nbsp;<input type="number" name="tRG"
+					id"cRG" size="20" maxlenght="11" />
+			</p>
+			
+		</fieldset>
+		<div align="right">
+				<input type="submit" name="acao" value="Cadastrar">	
+				<input type="submit" name="acao" value="Editar">	
+				<input type="submit" name="acao" value="Excluir">	
+				<!--<input type="submit" name="acao" value="Voltar">-->
+		</div>			
+	</form>
+</html>
