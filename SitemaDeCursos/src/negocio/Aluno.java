@@ -34,17 +34,28 @@ public class Aluno {
 
 	}
 
-	// Construtor vazio
+	public Aluno(String nomeAluno, String endAluno, String tel, String email, String rg, String cpf, String login,
+			String senha) {
+		setNome(nomeAluno);
+		setEndereco(endAluno);
+		setTelefone(tel);
+		setEmail(email);
+		setRG(rg);
+		setCPF(cpf);
+		setLogin(login);
+		setSenha(senha);
+
+	}
 	public Aluno() {
 
 	}
 
-	// Construtor consultar
+
 	public Aluno(String cpf) {
 		setCPF(cpf);
 	}
 
-	// sets
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -115,15 +126,7 @@ public class Aluno {
 		SistemaAcesso sa = new SistemaAcesso(userpass);
 		boolean sucesso = false;
 		AlunoDAO al = new AlunoDAO(bn);
-		AlunoTO to = new AlunoTO();
-		to.setNome(nome);
-		to.setEndereco(endereco);
-		to.setTelefone(telefone);
-		to.setEmail(email);
-		to.setRG(rg);
-		to.setCPF(cpf);
-		to.setLogin(login);
-		to.setSenha(senha);
+		AlunoTO to = getTO();
 		
 		if (!al.consultaExistAluno(to)) {
 			if (al.consultaExistLogin(to)) {
@@ -138,6 +141,19 @@ public class Aluno {
 		}
 
 		return sucesso;
+	}
+
+	public AlunoTO getTO() {
+		AlunoTO to = new AlunoTO();
+		to.setNome(nome);
+		to.setEndereco(endereco);
+		to.setTelefone(telefone);
+		to.setEmail(email);
+		to.setRG(rg);
+		to.setCPF(cpf);
+		to.setLogin(login);
+		to.setSenha(senha);
+		return to;
 	}
 
 	public boolean consultarAluno() {
@@ -161,15 +177,7 @@ public class Aluno {
 	public boolean editarAluno() {
 		boolean sucesso = false;
 		AlunoDAO al = new AlunoDAO(bn);
-		AlunoTO  to = new AlunoTO();
-		to.setNome(nome);
-		to.setEndereco(endereco);
-		to.setTelefone(telefone);
-		to.setEmail(email);
-		to.setRG(rg);
-		to.setCPF(cpf);
-		to.setLogin(login);
-		to.setSenha(senha);
+		AlunoTO to = getTO();
 		al.editar(to);
 		sucesso = true;
 		return sucesso;

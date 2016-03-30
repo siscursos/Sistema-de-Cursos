@@ -1,8 +1,8 @@
 @charset "UTF-8";
 form, h1{
-	width: 600px;
-	margin: auto;
-	}
+width: 650px;
+margin: auto;
+}
 	
 	
 body{
@@ -32,4 +32,8 @@ fieldset {
 border-color: #05F;
 border-width: 3px;
 margin: auto;
+}
+
+.lado{
+left:auto; 
 }

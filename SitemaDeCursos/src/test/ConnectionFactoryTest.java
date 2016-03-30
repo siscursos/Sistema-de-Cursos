@@ -1,4 +1,4 @@
-package db;
+package test;
 
 import static org.junit.Assert.*;
 
@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 import org.junit.Test;
 
+import db.ConnectionFactory;
+
 public class ConnectionFactoryTest {
 
 	@Test
@@ -14,7 +16,7 @@ public class ConnectionFactoryTest {
 		try {
 			Connection conn = ConnectionFactory.obtemConexao();
 			assertNotNull("testa se a conexao nao e nula", conn);
-			assertTrue("Ã© um objeto conexao", conn instanceof Connection );
+			assertTrue("É um objeto conexao", conn instanceof Connection );
 		} catch (SQLException e) {
 			e.printStackTrace();
 			fail("gerou SQLException");
