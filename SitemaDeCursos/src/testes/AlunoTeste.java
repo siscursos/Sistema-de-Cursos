@@ -16,14 +16,14 @@ public class AlunoTeste {
 	
 	@Before
 	public void setUp() throws Exception {
-		aluno = new Aluno("Teste", "Rua Teste", "12345678", "email@email.com", "123456789", "12345678911", "teste");
-		copia = new Aluno("Teste", "Rua Teste", "12345678", "email@email.com", "123456789", "12345678912", "teste");
+		aluno = new Aluno("Teste", "Rua Teste", "12345678", "email@email.com", "123456789", "12345678912", "testePass", "testeUser");
+		copia = new Aluno("Teste", "Rua Teste", "12345678", "email@email.com", "123456789", "12345678912", "testePass", "testeUser");
 	}
 	
 	@Test
 	public void test00Carregar() {
-		Aluno fixture = new Aluno("Teste", "Rua Teste", "12345678", "email@email.com", "123456789", "12345678911", "teste");
-		Aluno novo = new Aluno("Teste", "Rua Teste", "12345678", "email@email.com", "123456789", "12345678912", "teste");
+		Aluno fixture = new Aluno("NomeTeste", "Rua teste","12345678", "email@email.com", "123456799", "12345678910", "aluno1", "senha1");
+		Aluno novo = new Aluno(null, null,null,null,null,"12345678910",null,null);
 		novo.consultar();
 		assertEquals("testa inclusao", novo, fixture);
 	}
@@ -40,13 +40,13 @@ public class AlunoTeste {
 		aluno.setTelefone("999999");
 		copia.setTelefone("999999");		
 		aluno.alterar();
-		assertEquals("testa inclusao", aluno, copia);
+		assertEquals("testa alterar", aluno, copia);
 	}
 
 	@Test
 	public void test03Excluir() {
 		aluno.excluir();
-		assertEquals("testa inclusao", aluno, copia);
+		assertEquals("testa exclusao", aluno, copia);
 	}
 
 }

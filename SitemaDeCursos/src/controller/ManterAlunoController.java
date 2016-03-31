@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import negocio.Aluno;
+import model.Aluno;
 
 
 @WebServlet("/manter_aluno.do")
@@ -37,13 +37,13 @@ public class ManterAlunoController extends HttpServlet {
 		Aluno al = new Aluno(pNome, pEnd, pFone, pEmail, pRG, pCPF, pUser, pPass);
 		
 		if(pAcao.equals("Cadastrar")){
-			al.cadastrarAluno();
+			al.cadastrar();
 		} else if(pAcao.equals("Editar")){
-			al.editarAluno();
+			al.alterar();
 		} else if(pAcao.equals("Excluir")){
-			al.excluirAluno();
+			al.excluir();
 		}
-		al.consultarAluno();
+		al.consultar();
 		
 		request.setAttribute("AlunoTO", al.getTO());
 		RequestDispatcher dispatcher = request.getRequestDispatcher("AlunoCadastrado.jsp");

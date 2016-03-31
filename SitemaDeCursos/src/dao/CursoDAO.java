@@ -12,19 +12,24 @@ public class CursoDAO
 	public boolean cadastrar(CursoTO to)
 	{
 		boolean sucesso = false;
-		String sql = "INSERT INTO curso (idCurso, nome, dataInicio, dataTermino, hora, vagas, valor) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO curso (nome, dataInicio, dataTermino, hora, vagas, valor) VALUES (?, ?, ?, ?, ?, ?)";
 		try (Connection conn = ConnectionBDFactory.obtemConexao(); PreparedStatement st = conn.prepareStatement(sql);)
 		{
-			st.setInt(1, to.getIdCurso());
-			st.setString(2, to.getNome());
-			st.setString(3, to.getDataInicio());
-			st.setString(4, to.getDataTermino());
-			st.setString(5, to.getHora());
-			st.setInt(6, to.getVagas());
-			st.setDouble(7, to.getValor());
+			st.setString(1, to.getNome());
+			st.setString(2, to.getDataInicio());
+			st.setString(3, to.getDataTermino());
+			st.setString(4, to.getHora());
+			st.setInt(5, to.getVagas());
+			st.setDouble(6, to.getValor());
 
 			st.execute();
-
+			String sqlSelect = "SELECT LAST_INSERT_ID()";
+			try(PreparedStatement stm1 = conn.prepareStatement(sqlSelect);
+					ResultSet rs = stm1.executeQuery();){
+					if(rs.next()){
+						to.setIdCurso(rs.getInt("idcurso"));
+					}
+			}
 			sucesso = true;
 		} catch (Exception e)
 		{

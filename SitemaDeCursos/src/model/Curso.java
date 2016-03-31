@@ -110,7 +110,6 @@ public class Curso
 		CursoDAO dao = new CursoDAO();
 		CursoTO to = new CursoTO();
 		
-		to.setIdCurso(idCurso);
 		to.setNome(nome);
 		to.setDataInicio(dataInicio);
 		to.setDataTermino(dataTermino);
@@ -159,8 +158,45 @@ public class Curso
 		return dao.alterar(to);
 	}
 	
-	
-	
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Curso))
+			return false;
+		Curso other = (Curso) obj;
+		if (dataInicio == null) {
+			if (other.dataInicio != null)
+				return false;
+		} else if (!dataInicio.equals(other.dataInicio))
+			return false;
+		if (dataTermino == null) {
+			if (other.dataTermino != null)
+				return false;
+		} else if (!dataTermino.equals(other.dataTermino))
+			return false;
+		if (hora == null) {
+			if (other.hora != null)
+				return false;
+		} else if (!hora.equals(other.hora))
+			return false;
+		if (idCurso != other.idCurso)
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (numeroVagas != other.numeroVagas)
+			return false;
+		if (Double.doubleToLongBits(valor) != Double.doubleToLongBits(other.valor))
+			return false;
+		return true;
+	}
+
 	//Outros
 	@Override
 	public String toString() {

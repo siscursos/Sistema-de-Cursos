@@ -12,9 +12,10 @@ public class Aluno
    private String rG;
    private String cPF;
    private String senha;
-   
-   //Construtor com parêmetros
-   public Aluno(String n, String end, String tel, String email, String rG, String cPF, String senha)
+   private String usuario;
+
+//Construtor com parêmetros
+   public Aluno(String n, String end, String tel, String email, String rG, String cPF, String senha, String usuario)
    {
    
       setNome(n);
@@ -24,6 +25,7 @@ public class Aluno
       setRG(rG);
       setCPF(cPF);
       setSenha(senha);
+      setUsuario(usuario);
    }
    
    //Contrutor vazio
@@ -68,7 +70,9 @@ public class Aluno
 		this.senha = senha;
 	}
 
-	
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
 	//Metodos GET
 	public String getNome()
 	{
@@ -105,20 +109,30 @@ public class Aluno
 		return senha;
 	}
 	
+	public String getUsuario() {
+		return usuario;
+	}
 
 	//Metodos CRUD
 	public boolean cadastrar()
 	{
 		AlunoDAO dao = new AlunoDAO();
+		AlunoTO to = getTO();
+		
+		return dao.cadastrar(to);
+	}
+
+	public AlunoTO getTO() {
 		AlunoTO to = new AlunoTO();
 		to.setNome(nome);
 		to.setEndereco(endereco);
 		to.setTelefone(telefone);
 		to.setEmail(email);
-		to.setRG(rG);
-		to.setCPF(cPF);
-		
-		return dao.cadastrar(to);
+		to.setrG(rG);
+		to.setcPF(cPF);
+		to.setUser(usuario);
+		to.setSenha(senha);
+		return to;
 	}
 	
 	public AlunoTO consultar()
@@ -126,12 +140,14 @@ public class Aluno
 		AlunoDAO dao = new AlunoDAO();
 		AlunoTO to = dao.consultar(cPF);
 		
-		setNome(to.getNome());
-		setEndereco(to.getEndereco());
-		setTelefone(to.getTelefone());
-		setEmail(to.getEmail());
-		setRG(to.getRG());
-		setCPF(to.getCPF());
+		nome = to.getNome();
+		endereco = to.getEndereco();
+		telefone = to.getTelefone();
+		email = to.getEmail();
+		rG = to.getrG();
+		cPF = to.getcPF();
+		usuario = to.getUser();
+		senha = to.getSenha();
 		
 		return to;
 	}
@@ -145,19 +161,67 @@ public class Aluno
 	public boolean alterar()
 	{
 		AlunoDAO dao = new AlunoDAO();
-		AlunoTO to = new AlunoTO();
-		to.setNome(nome);
-		to.setEndereco(endereco);
-		to.setTelefone(telefone);
-		to.setEmail(email);
-		to.setRG(rG);
-		to.setCPF(cPF);
+		AlunoTO to = getTO();
 		
 		return dao.alterar(to);
 	}
 	
 	
 	
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Aluno))
+			return false;
+		Aluno other = (Aluno) obj;
+		if (cPF == null) {
+			if (other.cPF != null)
+				return false;
+		} else if (!cPF.equals(other.cPF))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (endereco == null) {
+			if (other.endereco != null)
+				return false;
+		} else if (!endereco.equals(other.endereco))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (rG == null) {
+			if (other.rG != null)
+				return false;
+		} else if (!rG.equals(other.rG))
+			return false;
+		if (senha == null) {
+			if (other.senha != null)
+				return false;
+		} else if (!senha.equals(other.senha))
+			return false;
+		if (telefone == null) {
+			if (other.telefone != null)
+				return false;
+		} else if (!telefone.equals(other.telefone))
+			return false;
+		if (usuario == null) {
+			if (other.usuario != null)
+				return false;
+		} else if (!usuario.equals(other.usuario))
+			return false;
+		return true;
+	}
+
 	//Outros
 	@Override
 	public String toString() {

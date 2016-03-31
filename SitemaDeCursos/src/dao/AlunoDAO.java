@@ -14,16 +14,19 @@ public class AlunoDAO
 	public boolean cadastrar(AlunoTO to)
 	{
 		boolean sucesso = false;
-		String sql = "INSERT INTO aluno(nome,endereco,telefone,email,rg,cpf) VALUES (?,?,?,?,?,?)";
+		String sql = "INSERT INTO aluno(nome,endereco,telefone,email,rg,cpf,user,pass) VALUES (?,?,?,?,?,?,?,?)";
 		try (Connection conn = ConnectionBDFactory.obtemConexao(); PreparedStatement st = conn.prepareStatement(sql);)
 		{
 			st.setString(1, to.getNome());
 			st.setString(2, to.getEndereco());
 			st.setString(3, to.getTelefone());
 			st.setString(4, to.getEmail());
-			st.setString(5, to.getRG());
-			st.setString(6, to.getCPF());
+			st.setString(5, to.getrG());
+			st.setString(6, to.getcPF());
+			st.setString(7, to.getUser());
+			st.setString(8, to.getSenha());
 			st.execute();
+
 			
 			sucesso = true;
 		} catch (Exception e)
@@ -53,8 +56,10 @@ public class AlunoDAO
 					to.setEndereco(rs.getString("endereco"));
 					to.setTelefone(rs.getString("telefone"));
 					to.setEmail(rs.getString("email"));
-					to.setRG(rs.getString("rg"));
-					to.setCPF(rs.getString("cpf"));
+					to.setrG(rs.getString("rg"));
+					to.setcPF(rs.getString("cpf"));
+					to.setUser(rs.getString("user"));
+					to.setSenha(rs.getString("pass"));
 				}
 			} catch (SQLException e)
 			{
@@ -88,15 +93,18 @@ public class AlunoDAO
 	public boolean alterar(AlunoTO to)
 	{
 		boolean sucesso = false;
-		String sqlUpdate = "UPDATE aluno SET nome = ?, endereco = ?, telefone = ?, email = ?, rg = ?, cpf = ? WHERE cpf = ?";
+		String sqlUpdate = "UPDATE aluno SET nome = ?, endereco = ?, telefone = ?, email = ?, rg = ?, cpf = ?, user = ?, pass = ? WHERE cpf = ?";
 		try (Connection conn = ConnectionBDFactory.obtemConexao();
 				PreparedStatement st = conn.prepareStatement(sqlUpdate);) {
 			st.setString(1, to.getNome());
 			st.setString(2, to.getEndereco());
 			st.setString(3, to.getTelefone());
 			st.setString(4, to.getEmail());
-			st.setString(5, to.getRG());
-			st.setString(6, to.getCPF());
+			st.setString(5, to.getrG());
+			st.setString(6, to.getcPF());
+			st.setString(7, to.getUser());
+			st.setString(8, to.getSenha());
+			st.setString(9, to.getcPF());
 			st.execute();
 		} catch (Exception e) {
 			e.printStackTrace();

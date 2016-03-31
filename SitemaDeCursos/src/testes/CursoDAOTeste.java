@@ -20,13 +20,12 @@ public class CursoDAOTeste {
 	public void setUp() throws Exception {
 		dao = new CursoDAO();
 		to = new CursoTO();
-		to.setIdCurso(1);
 		to.setNome("Teste");
 		to.setVagas(15);
 		to.setHora("19:30 - 22:30");
 		to.setValor(1500);
-		to.setDataInicio("01/04/2016");
-		to.setDataTermino("01/07/2016");
+		to.setDataInicio("2016/04/01");
+		to.setDataTermino("2016/07/01");
 	}
 	
 	@Test
@@ -39,8 +38,8 @@ public class CursoDAOTeste {
 		fixture.setVagas(15);
 		fixture.setHora("19:30 - 22:30");
 		fixture.setValor(1500);
-		fixture.setDataInicio("01/04/2016");
-		fixture.setDataTermino("01/07/2016");
+		fixture.setDataInicio("2016/04/01");
+		fixture.setDataTermino("2016/07/01");
 		CursoTO novo = dao.consultar(1);
 		novo.setIdCurso(1);
 		assertEquals("testa inclusao", novo, fixture);

@@ -16,14 +16,14 @@ public class AlunoTOTeste {
 		to = new AlunoTO();
 		to.setTelefone("123456789");
 		to.setNome("Teste");
-		to.setCPF("12345678911");
+		to.setcPF("12345678911");
 	}
 
 	@Test
 	public void testGets() {
 		assertEquals("getNome", to.getNome(), "Teste");
 		assertEquals("getTelefone", to.getTelefone(), "123456789");
-		assertEquals("getCPF", to.getCPF(), 3);
+		assertEquals("getCPF", to.getcPF(), "12345678911");
 	}
 	
 	@Test
@@ -31,7 +31,7 @@ public class AlunoTOTeste {
 		AlunoTO copia = new AlunoTO();
 		copia.setTelefone(to.getTelefone());
 		copia.setNome(to.getNome());
-		copia.setCPF(to.getCPF());
+		copia.setcPF(to.getcPF());
 		assertEquals("teste to igual a copia", to, copia);
 	}
 
