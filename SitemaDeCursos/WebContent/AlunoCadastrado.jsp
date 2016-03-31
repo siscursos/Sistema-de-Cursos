@@ -16,13 +16,13 @@
 	<fieldset id="al_cadastrado">
 		<legend>Aluno Cadastrado!</legend>
 		<p>
-			Nome    : <%= to.getNome()%>><br>
+			Nome    : <%= to.getNome()     %><br>
 			Endereço: <%= to.getEndereco() %><br>
 			Telefone: <%= to.getTelefone() %><br>
 			E-mail  : <%= to.getEmail()    %><br>
-			RG      : <%= to.getRG()       %><br>
-			CPF     : <%= to.getCPF()      %><br>
-			Usuário : <%= to.getLogin()    %><br>
+			RG      : <%= to.getrG()       %><br>
+			CPF     : <%= to.getcPF() 	   %><br>
+			Usuário : <%= to.getUser()     %><br>
 			Senha   : <%= to.getSenha()    %>
 			
 		</p>

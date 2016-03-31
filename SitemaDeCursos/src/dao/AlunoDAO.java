@@ -27,7 +27,6 @@ public class AlunoDAO
 			st.setString(8, to.getSenha());
 			st.execute();
 
-			
 			sucesso = true;
 		} catch (Exception e)
 		{
