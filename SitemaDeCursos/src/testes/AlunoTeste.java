@@ -16,14 +16,14 @@ public class AlunoTeste {
 	
 	@Before
 	public void setUp() throws Exception {
-		aluno = new Aluno("Teste", "Rua Teste", "12345678", "email@email.com", "123456789", "12345678912", "testePass", "testeUser");
-		copia = new Aluno("Teste", "Rua Teste", "12345678", "email@email.com", "123456789", "12345678912", "testePass", "testeUser");
+		aluno = new Aluno("Teste", "Rua Teste", "12345678", "email@email.com", "123456789", "12345678912");
+		copia = new Aluno("Teste", "Rua Teste", "12345678", "email@email.com", "123456789", "12345678912");
 	}
 	
 	@Test
 	public void test00Carregar() {
-		Aluno fixture = new Aluno("NomeTeste", "Rua teste","12345678", "email@email.com", "123456799", "12345678910", "aluno1", "senha1");
-		Aluno novo = new Aluno(null, null,null,null,null,"12345678910",null,null);
+		Aluno fixture = new Aluno("NomeTeste", "Rua teste","12345678", "email@email.com", "123456799", "12345678910");
+		Aluno novo = new Aluno(null, null,null,null,null,"12345678910");
 		novo.consultar();
 		assertEquals("testa inclusao", novo, fixture);
 	}

@@ -15,7 +15,7 @@ public class Aluno
    private String usuario;
 
 //Construtor com parêmetros
-   public Aluno(String n, String end, String tel, String email, String rG, String cPF, String senha, String usuario)
+   public Aluno(String n, String end, String tel, String email, String rG, String cPF)
    {
    
       setNome(n);
@@ -73,6 +73,7 @@ public class Aluno
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
+	
 	//Metodos GET
 	public String getNome()
 	{
@@ -112,16 +113,7 @@ public class Aluno
 	public String getUsuario() {
 		return usuario;
 	}
-
-	//Metodos CRUD
-	public boolean cadastrar()
-	{
-		AlunoDAO dao = new AlunoDAO();
-		AlunoTO to = getTO();
-		
-		return dao.cadastrar(to);
-	}
-
+	
 	public AlunoTO getTO() {
 		AlunoTO to = new AlunoTO();
 		to.setNome(nome);
@@ -134,6 +126,17 @@ public class Aluno
 		to.setSenha(senha);
 		return to;
 	}
+
+	//Metodos CRUD
+	public void cadastrar()
+	{
+		AlunoDAO dao = new AlunoDAO();
+		AlunoTO to = getTO();
+		
+		dao.cadastrar(to);
+	}
+
+	
 	
 	public AlunoTO consultar()
 	{

@@ -25,9 +25,9 @@ public class AlunoDAOTeste {
 		to.setEndereco("Rua teste");
 		to.setNome("NomeTeste");
 		to.setrG("123456789");
-		to.setSenha("teste");
+		//to.setSenha("teste");
 		to.setTelefone("12345678");
-		to.setUser("teste1");
+		//to.setUser("teste1");
 	}
 	
 	@Test
@@ -42,10 +42,10 @@ public class AlunoDAOTeste {
 		fixture.setEndereco("Rua teste");
 		fixture.setNome("NomeTeste");
 		fixture.setrG("123456799");
-		fixture.setSenha("teste");
+		//fixture.setSenha("teste");
 		fixture.setTelefone("12345678");
-		fixture.setUser("aluno1");
-		fixture.setSenha("senha1");
+		//fixture.setUser("aluno1");
+		//fixture.setSenha("senha1");
 		AlunoTO novo = dao.consultar("12345678910");
 		assertEquals("testa Consulta", novo, fixture);
 	}
@@ -71,9 +71,9 @@ public class AlunoDAOTeste {
 		to.setEndereco(null);
 		to.setNome(null);
 		to.setrG(null);
-		to.setSenha(null);
+		//to.setSenha(null);
 		to.setTelefone(null);
-		to.setUser(null);
+		//to.setUser(null);
 		dao.excluir(to.getcPF());
 		AlunoTO novo = dao.consultar(to.getcPF());
 		to.setcPF(null);

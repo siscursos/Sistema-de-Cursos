@@ -45,7 +45,7 @@ public class ManterAlunoController extends HttpServlet {
 		String pAcao    = request.getParameter("acao");
 
 		
-		Aluno al = new Aluno(pNome, pEnd, pFone, pEmail, pRG, pCPF, pUser, pPass);
+		Aluno al = new Aluno(pNome, pEnd, pFone, pEmail, pRG, pCPF);
 		
 		if(pAcao.equals("Cadastrar")){
 			al.cadastrar();

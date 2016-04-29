@@ -1,109 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%@ page import = "to.AlunoTO" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="pt-br">
 <head>
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<meta name="description" content="Bootstrap Metro Dashboard">
-	<meta name="author" content="Dennis Ji">
-	<meta name="keyword"content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-	<!-- end: Meta -->
-	<!-- start: Mobile Specific -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- end: Mobile Specific -->
-	<!-- start: CSS -->
-	<link id="bootstrap-style" href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-	<link id="base-style" href="css/style.css" rel="stylesheet">
-	<link id="base-style-responsive" href="css/style-responsive.css" rel="stylesheet">
-	<link
-		href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext'
-		rel='stylesheet' type='text/css'>
-	<!-- end: CSS -->
-	<!-- start: Favicon -->
-	<link rel="shortcut icon" href="img/favicon.ico">
-	<!-- end: Favicon -->
+	<c:import url="Styles.jsp"/>
 	
 	<title>Cadastro de Alunos</title>
 </head>
 <body>
 
 	<!-- start: Header -->
-	<div class="navbar">
-		<div class="navbar-inner">
-			<div class="container-fluid">
-				<a class="btn btn-navbar" data-toggle="collapse"
-					data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
-					<span class="icon-bar"></span> 
-					<span class="icon-bar"></span> 
-					<span class="icon-bar"></span>
-				</a> 
-				<a class="brand" href="index.html"><span>SisCursos</span></a>
-
-				<!-- start: Header Menu -->
-				<div class="nav-no-collapse header-nav">
-					<ul class="nav pull-right">
-						<!-- start: User Dropdown -->
-						<li class="dropdown">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i> Nome Usuário <span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								<li class="dropdown-menu-title">
-									<span>Informações da Conta</span>
-								</li>
-								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
-								<li><a href="login.html"><i class="halflings-icon off"></i> Logout</a></li>
-							</ul>
-						</li>
-						<!-- end: User Dropdown -->
-					</ul>
-				</div>
-				<!-- end: Header Menu -->
-			</div>
-		</div>
-	</div>
+	<c:import url="TopBar.jsp"/>
 	<!-- end: Header -->
 	
 	<div class="container-fluid-full">
 		<div class="row-fluid">
 			<!-- start: Main Menu -->
-			<div id="sidebar-left" class="span2" style="background-color: #004d99">
-				<div class="nav-collapse sidebar-nav">
-					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li><a href="index.html"><i class="icon-bar-chart"></i><span
-								class="hidden-tablet"> Página Inicial</span></a></li>
-						<li><a class="dropmenu" href="#"><i
-								class="icon-folder-close-alt"></i><span class="hidden-tablet">
-									Aluno</span>
-							<!--  <span class="label label-important"> 3 </span>--></a>
-							<ul>
-								<li><a class="submenu" href="CadastroDeAlunos.html"><i
-										class="icon-edit"></i><span class="hidden-tablet">
-											Cadastro de Alunos</span></a></li>
-							</ul></li>
-						<li><a class="dropmenu" href="#"><i
-								class="icon-folder-close-alt"></i><span class="hidden-tablet">
-									Cadastro de Cursos</span>
-							<span class="label label-important"> 2 </span></a>
-							<ul>
-								<li><a class="submenu" href="CadastroDeCursosInfo.html"><i
-										class="icon-edit"></i><span class="hidden-tablet">
-											Informática</span></a>
-								</li>
-							</ul>
-							<ul>
-								<li><a class="submenu" href="CadastroDeCursosAt.html"><i
-										class="icon-edit"></i><span class="hidden-tablet">
-											Artes</span></a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
+			<c:import url="MenuLateral.jsp"/>
 
 			<!-- end: Main Menu -->
 		
@@ -153,5 +70,9 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- start: JavaScript-->
+	<c:import url="Scripts.jsp"/>
+	<!-- end: JavaScript-->
 </body>
 </html>

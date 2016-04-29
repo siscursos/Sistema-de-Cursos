@@ -11,31 +11,54 @@ import to.AlunoTO;
 
 public class AlunoDAO
 {
-	public boolean cadastrar(AlunoTO to)
+	public void cadastrar(AlunoTO to)
 	{
-		boolean sucesso = false;
-		String sql = "INSERT INTO aluno(nome,endereco,telefone,email,rg,cpf,user,pass) VALUES (?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO Aluno(cpf, nome,endereco,telefone,email,rg) VALUES (?,?,?,?,?,?)";
 		try (Connection conn = ConnectionBDFactory.obtemConexao(); PreparedStatement st = conn.prepareStatement(sql);)
 		{
-			st.setString(1, to.getNome());
-			st.setString(2, to.getEndereco());
-			st.setString(3, to.getTelefone());
-			st.setString(4, to.getEmail());
-			st.setString(5, to.getrG());
-			st.setString(6, to.getcPF());
-			st.setString(7, to.getUser());
-			st.setString(8, to.getSenha());
+			st.setString(1, to.getcPF());
+			st.setString(2, to.getNome());
+			st.setString(3, to.getEndereco());
+			st.setString(4, to.getTelefone());
+			st.setString(5, to.getEmail());
+			st.setString(6, to.getrG());
+			
 			st.execute();
+			
+			
+			//cadastrarUsuario(to);
+			String sqlSelect = "SELECT LAST_INSERT_ID()";
+			try(PreparedStatement stm1 = conn.prepareStatement(sqlSelect);
+					ResultSet rs = stm1.executeQuery();){
+					if(rs.next()){
+						to.setcPF(rs.getString("cpf"));
+					}
+			}
 
-			sucesso = true;
 		} catch (Exception e)
 		{
-
 			e.printStackTrace();
 		}
-		return sucesso;
+		
 
 	}
+	
+	/*public void cadastrarUsuario(AlunoTO to){
+		String sql = "INSERT INTO SisAcesso(cpf, tipo_usuario, login, senha) VALUES (?,?,?,?)";
+		try (Connection conn = ConnectionBDFactory.obtemConexao(); PreparedStatement st = conn.prepareStatement(sql);)
+		{
+			st.setString(1, to.getcPF());
+			st.setInt(2, 2);
+			st.setString(3, to.getUser());
+			st.setString(4, to.getSenha());
+			
+			st.execute();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+	}*/
 	
 	public AlunoTO consultar(String cpf)
 	{
@@ -57,8 +80,8 @@ public class AlunoDAO
 					to.setEmail(rs.getString("email"));
 					to.setrG(rs.getString("rg"));
 					to.setcPF(rs.getString("cpf"));
-					to.setUser(rs.getString("user"));
-					to.setSenha(rs.getString("pass"));
+					to.setUser("teste");
+					to.setSenha("teste2");
 				}
 			} catch (SQLException e)
 			{
@@ -101,8 +124,8 @@ public class AlunoDAO
 			st.setString(4, to.getEmail());
 			st.setString(5, to.getrG());
 			st.setString(6, to.getcPF());
-			st.setString(7, to.getUser());
-			st.setString(8, to.getSenha());
+			//st.setString(7, to.getUser());
+			//st.setString(8, to.getSenha());
 			st.setString(9, to.getcPF());
 			st.execute();
 		} catch (Exception e) {
