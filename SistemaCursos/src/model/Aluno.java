@@ -1,5 +1,6 @@
 package model;
 
+import dao.AlunoDAO;
 import to.AlunoTO;
 
 public class Aluno {
@@ -100,6 +101,41 @@ public class Aluno {
 		
 		return to;
 		
+	}
+	
+	public void criar(){
+		AlunoDAO dao = new AlunoDAO();
+		AlunoTO  to  = getTo();
+		dao.incluir(to);
+		this.id = to.getId();
+	}
+	
+	public void atualizar(){
+		AlunoDAO dao = new AlunoDAO();
+		AlunoTO  to  = getTo();
+		dao.atualizar(to);
+	}
+	
+	public void excluir() {
+		AlunoDAO dao = new AlunoDAO();
+		AlunoTO to = new AlunoTO();
+		to.setId(id);
+		dao.excluir(to);
+	}
+	
+	public void carregar(){
+		AlunoDAO dao = new AlunoDAO();
+		AlunoTO  to  = dao.carregar(cpf);
+		
+		id = to.getId();
+		nome = to.getNome();
+		end = to.getEnd();
+		tel = to.getTel();
+		email = to.getEmail();
+		rg = to.getRg();
+		cpf = to.getCpf();
+		user = to.getUser();
+		pass = to.getPass();
 	}
 	
 	@Override

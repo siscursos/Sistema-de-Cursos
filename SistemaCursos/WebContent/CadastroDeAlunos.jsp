@@ -93,7 +93,7 @@
 
 					<button type="submit" name="acao" class="btn btn-primary">Cadastrar</button>
 					<button type="submit" name="acao" class="btn btn-primary">Excluir</button>
-					<!--  <input type="submit" name="acao" value="Voltar">-->
+					<!--<input type="submit" name="acao" value="Voltar">-->
 				</form>
 			
 

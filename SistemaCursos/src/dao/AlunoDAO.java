@@ -23,13 +23,6 @@ public class AlunoDAO {
 			stm.setString(7, to.getUser());
 			stm.setString(8, to.getPass());
 			stm.execute();
-			/*String sqlSelect = "SELECT LAST_INSERT_ID() as id";
-			try(PreparedStatement stm1 = conn.prepareStatement(sqlSelect);
-					ResultSet rs = stm1.executeQuery();){
-					if(rs.next()){
-						to.setId(rs.getInt("id"));
-					}
-			}*/
 		}
 		catch (SQLException e) {
 				e.printStackTrace();
@@ -58,7 +51,7 @@ public class AlunoDAO {
 	
 	public void excluir(AlunoTO to) {
 		String sqlDelete = "DELETE FROM aluno WHERE cpf = ?";
-		// usando o try with resources do Java 7, que fecha o que abriu
+
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlDelete);) {
 			stm.setString(1, to.getCpf());
@@ -68,11 +61,11 @@ public class AlunoDAO {
 			e.printStackTrace();
 		}
 	}
+	
 	public AlunoTO carregar(String cpf) {
 		AlunoTO to = new AlunoTO();
 		to.setCpf(cpf);
 		String sqlSelect = "SELECT nome, endereco, telefone, email, rg, cpf, user, pass FROM aluno WHERE cpf = ?";
-		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
 			stm.setString(1, cpf);

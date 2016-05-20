@@ -84,8 +84,9 @@ public class AlunoDAOTest {
 		to.setUser(null);
 		to.setPass(null);
 		dao.excluir(to);
-		AlunoTO novo = dao.carregar(to.getCpf());
 		to.setCpf(null);
+		AlunoTO novo = dao.carregar(to.getCpf());
+		
 		assertEquals("testa exclusão", novo, to);
 	}
 
