@@ -46,58 +46,54 @@
 					<i class="icon-edit"></i>Cadastro de Alunos</a>
 				</li>
 			</ul>
-				<div class="container">
+				
 					<form method="post" id="fcontato" action="manter_aluno.do">
 
 						<h1>Cadastro de Alunos</h1>
-						<div class="form-group " >
-							<label for="cNome">Nome:</label><input type="text" class="form-control" name="tNome" 
+						
+						<div class="form-group" >
+							<div class="form-inline">
+								<label for="cNome">Nome: </label><input type="text" class="form-control" name="tNome" 
 									id="cNome" size="40" maxlength="40" placeholder="Nome" />
-						</div>
-
-						<div class="form-group">
-							<label for="cEnd">Endereço:</label> <input type="text" class="form-control" name="tEnd" 
-								id="cEnd" size="50" maxlength="50" placeholder="Endereço" />
+								<label for="cEnd">Endereço: </label> <input type="text" class="form-control" name="tEnd" 
+									id="cEnd" size="50" maxlength="50" placeholder="Endereço" />
+							</div>
 						</div>
 						
-						<div class="form-group">
-							<label for="Tel">Telefone:</label> <input type="number" name="tTel" class="form-control" 
-								id="cTel" size="20" maxlength="11" min="0" max="99999999999" placeholder="Telefone" />
-
-							<label for="cEmail"> E-mail:</label> <input type="email" class="form-control" name="tEmail" 
-									id="cEmail" size="40" maxlength="40" placeholder="Email" />
-						</div>
-						<div class="form-group">
-							<label for="cRG"> RG:</label><input type="text" class="form-control" name="tRG" 
-								id="cRG" size="20" maxlength="9" placeholder="RG" />
-						</div>
-						<div class="form-group">
-							<label for="cCPF">CPF:</label>
+						<div class="form-group" style="margin-top: 15px;">
 							<div class="form-inline">
-								<input type="number" class="form-control" name="tCPF" id="cCPF" size="20" maxlenght="11" placeholder="CPF" />
-								<input type="submit" name="acao" value="Consultar" class="btn btn-primary"> 
-								<input type="submit" name="acao" value="Editar" class="btn btn-primary">
+								<label for="Tel">Telefone: </label> <input type="number" name="tTel" class="form-control" 
+									id="cTel" size="20" maxlength="11" min="0" max="99999999999" placeholder="Telefone" />
 
+								<label for="cEmail"> E-mail: </label> <input type="email" class="form-control" name="tEmail" 
+									id="cEmail" size="40" maxlength="40" placeholder="Email" />
+							</div>
+						</div>
+						<div class="form-group" style="margin-top: 15px;">
+							<div class="form-inline">
+								<label for="cRG"> RG: </label><input type="text" class="form-control" name="tRG" 
+									id="cRG" size="20" maxlength="9" placeholder="RG" />
+								<label for="cCPF">CPF: </label><input type="number" class="form-control" name="tCPF" id="cCPF" size="20" maxlenght="11" placeholder="CPF" />
 							</div>
 						</div>
 
 
-						<div class="form-group">
-							<label for="cUser"> Usuário:</label><input type="text" class="form-control" name="tUser" 
-								id="cRG" size="20" maxlenght="9" placeholder="Usuário" /> 
-							<label for="cPass">Senha:</label><input type="password" class="form-control" name="tPass" 
-								id="cRG" size="35" maxlenght="30" placeholder="Senha" />
+						<div class="form-group" style="margin-top: 15px;">
+							<div class="form-inline">
+								<label for="cUser"> Usuário:</label><input type="text" class="form-control" name="tUser" 
+									id="cRG" size="20" maxlenght="9" placeholder="Usuário" /> 
+								<label for="cPass">Senha:</label><input type="password" class="form-control" name="tPass" 
+									id="cRG" size="35" maxlenght="30" placeholder="Senha" />
+							</div>
 						</div>
 
 
-
-					<button type="submit" name="acao" class="btn btn-primary">Cadastrar</button>
-					<button type="submit" name="acao" class="btn btn-primary">Excluir</button>
+					<button type="submit" name="acao" class="btn btn-primary" style="margin-top: 15px;">Cadastrar</button>
 					<!--<input type="submit" name="acao" value="Voltar">-->
 				</form>
 			
 
-			</div>
+			
 		</div>
 		
 	</div>

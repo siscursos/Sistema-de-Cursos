@@ -45,12 +45,25 @@
 				<li>
 					<i class="icon-edit"></i>Gerenciamento de Alunos</a>
 				</li>
-			</ul>
-				<div class="container">
-					<h2>Gerenciamento de Alunos<h2>
-			
+				</ul>
+					<div class="row-fluid">
+						<h1>Gerenciamento de Alunos</h1>
+					</div>
+					
+					
+					<div class="col-md-6">
+						<div class="input-append" style="margin-top: 15px;">
+								<input size="100" type="text" placeholder="Digite o nome do aluno(Deixe vazio para pesquisar todos)">
+								<button class="btn" type="button" >Pesquisar</button>
+						</div>
+					</div>
+					
+					<div class="col-md-3">
+                           <a href="CadastroDeAlunos.jsp" class="btn btn-primary pull-right h2">Cadastrar Aluno</a>
+                    </div>
 
-				</div>
+                  
+			</div>
 		</div>
 		
 	</div>

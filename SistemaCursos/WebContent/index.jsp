@@ -50,7 +50,7 @@
 		</div>
 	</div>
 
-				
+	<c:import url="Footer.jsp" />		
 	<!-- start: JavaScript-->
 	<c:import url="Scripts.jsp"/>		
 
