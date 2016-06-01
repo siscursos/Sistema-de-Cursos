@@ -43,25 +43,84 @@
 					<i class="icon-angle-right"></i> 
 				</li>
 				<li>
-					<i class="icon-edit"></i>Gerenciamento de Alunos</a>
+					<i class="icon-edit"></i>Gerenciamento de Alunos
 				</li>
 				</ul>
 					<div class="row-fluid">
 						<h1>Gerenciamento de Alunos</h1>
 					</div>
 					
-					
-					<div class="col-md-6">
-						<div class="input-append" style="margin-top: 15px;">
+					<form action="controller.do" method="post">
+						<div class="col-md-6">
+							<div class="input-append" style="margin-top: 15px;">
 								<input size="100" type="text" placeholder="Digite o nome do aluno(Deixe vazio para pesquisar todos)">
 								<button class="btn" type="button" >Pesquisar</button>
+							</div>
 						</div>
-					</div>
-					
 					<div class="col-md-3">
                            <a href="CadastroDeAlunos.jsp" class="btn btn-primary pull-right h2">Cadastrar Aluno</a>
                     </div>
+                    </form>
+                    
+					<c:if test="${not empty lista}">
+                <div id="list" class="row">
 
+                    <div class="table-responsive col-md-12">
+                        <table class="table table-striped" cellspacing="0" cellpadding="0">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>CPF</th>
+                                    <th>E-mail</th>
+                                    <th class="actions"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+          					<c:forEach var="aluno" items="${lista }">
+                                       <tr>
+                                            <td>
+                                               ${aluno.nome }
+                                            </td>
+                                            <td>
+                                                ${aluno.cpf }
+                                            </td>
+                                            <td>
+                                                ${aluno.email }
+                                            </td>
+                                            <td class="actions">
+                                                <a class="btn btn-success btn-xs" href="controller.do?command=DetalhesAluno&id=${aluno.cpf }">Detalhes</a>
+                                                <a class="btn btn-warning btn-xs" href="controller.do?command=EditarCliente&id=${aluno.cpf }">Editar</a>
+                                             	<!-- <button id="btn${cliente.id }%>" type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-modal" data-cliente="${cliente.id }">Excluir</button> -->
+                                            </td>
+                                        </tr>             
+                            </c:forEach>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                <!-- /#list -->
+
+                <div id="bottom" class="row">
+                    <div class="col-md-12">
+                        <!-- paginação ainda não foi implementada -->
+                        <ul class="pagination">
+                            <li class="disabled"><a>&lt; Anterior</a>
+                            </li>
+                            <li class="disabled"><a>1</a>
+                            </li>
+                            <li><a href="#">2</a>
+                            </li>
+                            <li><a href="#">3</a>
+                            </li>
+                            <li class="next"><a href="#" rel="next">Próximo &gt;</a>
+                            </li>
+                        </ul>
+                        <!-- /.pagination -->
+                    </div>
+                </div>
+                </c:if>
                   
 			</div>
 		</div>
