@@ -108,7 +108,6 @@ public class AlunoDAO {
 					to.setCpf(rs.getString("cpf"));
 					to.setUser(rs.getString("user"));
 					to.setPass(rs.getString("pass"));
-					
 					lista.add(to);
 				}
 			} catch (SQLException e) {
