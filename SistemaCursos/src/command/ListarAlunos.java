@@ -8,17 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class ListaAlunosVz implements Command {
+public class ListarAlunos implements Command {
 
 	@Override
 	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.setAttribute("lista", null);
-
-		RequestDispatcher dispatcher = request
-				.getRequestDispatcher("GerencAlunos.jsp");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("GerencAlunos.jsp");
 		dispatcher.forward(request, response);
-
 	}
 
 }

@@ -8,7 +8,7 @@
 	<meta charset="utf-8">
 	<c:import url="Styles.jsp"/>
 	
-	<title>Cadastro de Alunos</title>
+	<title>Editar Aluno</title>
 </head>
 <body>
 
@@ -48,37 +48,38 @@
 					<i class="icon-angle-right"></i>
 				</li>
 				<li>
-					Cadastro de Alunos
+					Editar Aluno: ${aluno.nome }
 				</li>
 				</ul>
 				
 					<form method="post" action="controller.do">
 
-						<h1>Cadastro de Alunos</h1>
+						<h1>Editar Aluno: ${aluno.nome }</h1>
 						
 						<div class="form-group" >
 							<div class="form-inline">
 								<label for="cNome">Nome: </label><input type="text" class="form-control" name="tNome" 
-									id="cNome" size="40" maxlength="40" placeholder="Nome" />
+									id="cNome" size="40" maxlength="40" placeholder="Nome" value="${aluno.nome }"/>
 								<label for="cEnd">Endereço: </label> <input type="text" class="form-control" name="tEnd" 
-									id="cEnd" size="50" maxlength="50" placeholder="Endereço" />
+									id="cEnd" size="50" maxlength="50" placeholder="Endereço" value="${aluno.end }"/>
 							</div>
 						</div>
 						
 						<div class="form-group" style="margin-top: 15px;">
 							<div class="form-inline">
 								<label for="Tel">Telefone: </label> <input type="number" name="tTel" class="form-control" 
-									id="cTel" size="20" maxlength="11" min="0" max="99999999999" placeholder="Telefone" />
+									id="cTel" size="20" maxlength="11" min="0" max="99999999999" placeholder="Telefone" value="${aluno.tel }"/>
 
 								<label for="cEmail"> E-mail: </label> <input type="email" class="form-control" name="tEmail" 
-									id="cEmail" size="40" maxlength="40" placeholder="Email" />
+									id="cEmail" size="40" maxlength="40" placeholder="Email" value="${aluno.email }"/>
 							</div>
 						</div>
 						<div class="form-group" style="margin-top: 15px;">
 							<div class="form-inline">
 								<label for="cRG"> RG: </label><input type="text" class="form-control" name="tRG" 
-									id="cRG" size="20" maxlength="9" placeholder="RG" />
-								<label for="cCPF">CPF: </label><input type="number" class="form-control" name="tCPF" id="cCPF" size="20" maxlenght="11" placeholder="CPF" />
+									id="cRG" size="20" maxlength="9" placeholder="RG" value="${aluno.rg }"/>
+								<label for="cCPF">CPF: </label><input type="number" class="form-control" name="tCPF" 
+									id="cCPF" size="20" maxlenght="11" placeholder="CPF" value="${ aluno.cpf}"/>
 							</div>
 						</div>
 
@@ -86,14 +87,14 @@
 						<div class="form-group" style="margin-top: 15px;">
 							<div class="form-inline">
 								<label for="cUser"> Usuário:</label><input type="text" class="form-control" name="tUser" 
-									id="cRG" size="20" maxlenght="9" placeholder="Usuário" /> 
+									id="cRG" size="20" maxlenght="9" placeholder="Usuário" value="${aluno.user }"/> 
 								<label for="cPass">Senha:</label><input type="password" class="form-control" name="tPass" 
-									id="cRG" size="35" maxlenght="30" placeholder="Senha" />
+									id="cRG" size="35" maxlenght="30" placeholder="Senha" value="${aluno.pass }"/>
 							</div>
 						</div>
 
 					<hr />
-					<button type="submit" class="btn btn-primary" name="command" value="CadastrarAluno">Salvar</button>
+					<button type="submit" class="btn btn-primary" name="command" value="EditarAluno">Salvar</button>
 					<a class="btn btn-primary" name="voltar" href="GerencAlunos.jsp">Voltar</a>
 				</form>
 				

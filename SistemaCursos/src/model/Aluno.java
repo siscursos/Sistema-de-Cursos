@@ -1,5 +1,8 @@
 package model;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 import dao.AlunoDAO;
 import to.AlunoTO;
 
@@ -15,7 +18,7 @@ public class Aluno {
 	private String pass;
 	
 	
-	
+	public Aluno(){}
 	
 	public Aluno(int id, String nome, String end, String tel, String email, String rg, String cpf, String user,
 			String pass) {
@@ -32,7 +35,6 @@ public class Aluno {
 	
 	public Aluno(String nome, String end, String tel, String email, String rg, String cpf, String user,
 			String pass) {
-		this.id = id;
 		this.nome = nome;
 		this.end = end;
 		this.tel = tel;
@@ -132,7 +134,7 @@ public class Aluno {
 	public void excluir() {
 		AlunoDAO dao = new AlunoDAO();
 		AlunoTO to = new AlunoTO();
-		to.setId(id);
+		to.setCpf(cpf);
 		dao.excluir(to);
 	}
 	
@@ -149,6 +151,20 @@ public class Aluno {
 		cpf = to.getCpf();
 		user = to.getUser();
 		pass = to.getPass();
+	}
+	
+	public ArrayList<AlunoTO> listarAlunos() throws IOException{
+		ArrayList<AlunoTO> lista;
+		AlunoDAO dao = new AlunoDAO();
+		lista = dao.listar();
+		return lista;
+	}
+	
+	public ArrayList<AlunoTO> listarAlunos(String chave) throws IOException{
+		ArrayList<AlunoTO> lista;
+		AlunoDAO dao = new AlunoDAO();
+		lista = dao.listar(chave);
+		return lista;
 	}
 	
 	@Override

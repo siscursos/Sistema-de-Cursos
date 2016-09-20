@@ -12,29 +12,27 @@ import javax.servlet.http.HttpSession;
 import model.Aluno;
 import to.AlunoTO;
 
-
 public class CadastrarAluno implements Command {
 
 	@Override
 	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String nome = request.getParameter("tNome");
-		String endereco = request.getParameter("tEnd");
-		String telefone = request.getParameter("tTel");
-		String email = request.getParameter("tEmail");
-		String rG = request.getParameter("tRG");
-		String cPF = request.getParameter("tCPF");
-		String senha = request.getParameter("tPass");
-		String usuario= request.getParameter("tUser");
-		
-		Aluno aluno = new Aluno( 0,nome, endereco, telefone, email, rG, cPF, usuario, senha);
-		
+		String pNome = request.getParameter("tNome");
+		String pEnd  = request.getParameter("tEnd");
+		String pTel  = request.getParameter("tTel");
+		String pEmail = request.getParameter("tEmail");
+		String pRG    = request.getParameter("tRG");
+		String pCPF   = request.getParameter("tCPF");
+		String pUser  = request.getParameter("tUser");
+		String pPass  = request.getParameter("tPass");
+
+		Aluno aluno = new Aluno(pNome, pEnd, pTel, pEmail, pRG, pCPF, pUser, pPass);
 		HttpSession session = request.getSession();
+		
 		aluno.criar();
 		ArrayList<AlunoTO> lista = new ArrayList<>();
 		lista.add(aluno.getTo());
 		session.setAttribute("lista", lista);
-		RequestDispatcher view =  request.getRequestDispatcher("ListarAlunos.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("GerencAlunos.jsp");
 		view.forward(request, response);
 	}
 

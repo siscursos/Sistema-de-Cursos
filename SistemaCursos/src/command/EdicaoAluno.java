@@ -6,11 +6,10 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.Aluno;
 
-public class ExcluirAluno implements Command {
+public class EdicaoAluno implements Command {
 
 	@Override
 	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,11 +24,10 @@ public class ExcluirAluno implements Command {
 		
 		Aluno aluno = new Aluno(pNome, pEnd, pTel, pEmail, pRG, pCPF, pUser, pPass);
 		RequestDispatcher view = null;
-		HttpSession session = request.getSession();
 		
-		aluno.excluir();
-		session.setAttribute("lista", null);
-		view = request.getRequestDispatcher("GerencAlunos.jsp");
+		aluno.carregar();
+		request.setAttribute("aluno", aluno.getTo());
+		view = request.getRequestDispatcher("EditarAluno.jsp");
 		view.forward(request, response);
 	}
 

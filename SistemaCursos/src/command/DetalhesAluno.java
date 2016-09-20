@@ -13,17 +13,18 @@ public class DetalhesAluno implements Command {
 
 	@Override
 	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String pNome = request.getParameter("nome");
-		String pEnd  = request.getParameter("end");
-		String pTel  = request.getParameter("tel");
-		String pEmail = request.getParameter("email");
-		String pRg    = request.getParameter("rg");
-		String pCpf   = request.getParameter("cpf");
-		String pUser   = request.getParameter("user");
-		String pPass   = "";
+		String pNome = "";
+		String pEnd  = "";
+		String pTel  = "";
+		String pEmail = "";
+		String pRG    = "";
+		String pCPF   = request.getParameter("cpf");
+		String pUser  = "";
+		String pPass  = "";
 		
-		Aluno aluno = new Aluno(pNome, pEnd, pTel, pEmail, pRg, pCpf, pUser, pPass);
+		Aluno aluno = new Aluno(pNome, pEnd, pTel, pEmail, pRG, pCPF, pUser, pPass);
 		RequestDispatcher view = null;
+		
 		aluno.carregar();
 		request.setAttribute("aluno", aluno.getTo());
 		view = request.getRequestDispatcher("DetalhesAluno.jsp");

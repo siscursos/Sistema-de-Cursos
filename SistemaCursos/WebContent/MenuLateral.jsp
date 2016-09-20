@@ -12,7 +12,7 @@
 									Aluno</span>
 							<!--  <span class="label label-important"> 3 </span>--></a>
 							<ul>
-								<li><a class="submenu" href="GerencAlunos.jsp"><i
+								<li><a class="submenu" href="controller.do?command=ListarAlunos"><i
 										class="icon-edit"></i><span class="hidden-tablet">
 											Gerenciamento de Alunos</span></a></li>
 							</ul></li>
